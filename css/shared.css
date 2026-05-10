@@ -1,0 +1,278 @@
+:root {
+  /* Main colors of pages */
+  --bg: #141210;
+  --card: #2E2720;
+  --lift: #3D3228;
+
+  --amber: #EF9F27;
+  --coral: #D85A30;
+  --peach: #F0997B;
+  --green: #1DBF8A;
+  
+  --beige-hi: #D4BC9A;
+  --beige: #C4A882;
+  --beige-lo: #8C7A62;
+  
+  --a-dim: rgba(239, 159, 39, 0.14);
+  --border: rgba(196, 168, 130, 0.13);
+  --border-h: rgba(239, 159, 39, 0.28);
+  --glass: rgba(46, 39, 32, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--beige);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Base Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--lift);
+  border-radius: 4px;
+}
+
+/* Side Navigation Styling */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  padding: 32px 24px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--amber);
+  margin-bottom: 40px;
+  padding-left: 16px;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links li {
+  padding: 12px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 10px;
+  color: var(--beige-lo);
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links li:hover {
+  background: var(--lift);
+  color: var(--beige-hi);
+}
+
+.nav-links li.active {
+  background: var(--a-dim);
+  color: var(--amber);
+  border: 1px solid var(--border-h);
+}
+
+/* Main Content Wrapper */
+.main {
+  margin-left: 250px;
+  padding: 48px 60px;
+  flex: 1;
+}
+
+/* --- Global Design System Components --- */
+
+/* Modals */
+.strive-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    animation: modalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.spine-crack {
+    height: 4px;
+    background: var(--coral);
+    width: 0%;
+    margin: 10px auto;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--coral);
+    animation: crackExpand 15s linear forwards;
+}
+
+@keyframes crackExpand {
+    to { width: 100%; }
+}
+
+/* Recovery States */
+.recovery-ramp {
+    border-left: 2px solid var(--green);
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+/* Typography of Text in pages */
+.strive-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.strive-page-subtitle {
+  font-size: 14px;
+  color: var(--beige-lo);
+  margin-bottom: 48px;
+}
+
+.strive-h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--beige-hi);
+  margin-bottom: 16px;
+}
+
+/* Cards & Glassmorphism */
+.strive-card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.strive-card:hover {
+  border-color: var(--border-h);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Inputs */
+.strive-input, .strive-select, .strive-textarea {
+  background: var(--lift);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: var(--beige-hi);
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.strive-input:focus, .strive-select:focus, .strive-textarea:focus {
+  border-color: var(--amber);
+  background: var(--a-dim);
+  box-shadow: 0 0 15px rgba(239, 159, 39, 0.1);
+}
+
+/* Buttons */
+.strive-btn {
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.strive-btn-primary {
+  background: var(--amber);
+  color: #1a1000;
+}
+
+.strive-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(239, 159, 39, 0.4);
+}
+
+.strive-btn-secondary {
+  background: var(--lift);
+  color: var(--beige-hi);
+  border: 1px solid var(--border);
+}
+
+.strive-btn-secondary:hover {
+  background: var(--a-dim);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* Layout Utilities */
+.strive-flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.strive-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.strive-gap-4 { gap: 16px; }
+.strive-gap-6 { gap: 24px; }
+.strive-mt-4 { margin-top: 16px; }
+.strive-mt-6 { margin-top: 24px; }
+.strive-mb-4 { margin-bottom: 16px; }
+.strive-mb-6 { margin-bottom: 24px; }
+
+.section-spacer {
+  margin-top: 24px;
+}

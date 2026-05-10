@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive - About</title>
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/about.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="logo">Strive</h2>
+        <ul class="nav-links">
+            <li onclick="goTo('dashboard.html')">Dashboard</li>
+            <li onclick="goTo('analytics.html')">Analytics</li>
+            <li onclick="goTo('motivation.html')">Motivation</li>
+            <li onclick="goTo('feedback.html')">Feedback</li>
+            <li onclick="goTo('faq.html')">FAQ</li>
+            <li onclick="goTo('contact.html')">Contact</li>
+            <li class="active">About</li>
+            <li onclick="resetUserData()" style="color: var(--coral); margin-top: auto; border-top: 1px solid var(--border); padding: 20px 16px; justify-content: center;">Reset All Data</li>
+        </ul>
+    </div>
+ 
+    <div class="main">
+        <h1 class="strive-page-title">About Strive</h1>
+        <p class="strive-page-subtitle">Set • Show Up • Soar</p>
+ 
+        <div class="about-container">
+
+            <div class="about-section strive-card team-section strive-mb-6">
+                <h2 class="strive-h2">The Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="photo-wrapper">
+                            <img src="..\images\uidtej.jpeg" alt="Tej" class="member-photo"/>
+                        </div>
+                        <h3 class="team-name">Maddali Tej Vardhan</h3>
+                        <p class="team-desc">Landing Page, Dashboard Page, Contact Page and Local Data Management</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="photo-wrapper">
+                            <img src="..\images\uidpraveen.jpeg" alt="Praveen" class="member-photo" />
+                        </div>
+                        <h3 class="team-name">Praveen Mutyala</h3>
+                        <p class="team-desc">Main Calculation Logic, Analytics Page, Motivation Page and About Page</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="photo-wrapper">
+                            <img src="..\images\uidvishal.jpeg" alt="Vishal" class="member-photo"/>
+                        </div>
+                        <h3 class="team-name">Vishal Konduri</h3>
+                        <p class="team-desc">Motivation Page, Feedback Page and FAQ Page</p>
+                    </div>
+                </div>
+            </div>
+ 
+            
+            <div class="about-section strive-card strive-mb-6">
+                <h2 class="strive-h2">Our Mission</h2>
+                <p>Strive is more than just a habit tracker. It is a minimalist, dopamine-driven platform designed to hack your psychology for the better.</p>
+            </div>
+ 
+            <div class="about-section strive-card strive-mb-6">
+                <h2 class="strive-h2">The Philosophy</h2>
+                <p> 
+                    We often try to learn a habit to make our personal life better or a
+                    skill to make our professional life better. But we tend to fail in that process
+                    because of lack of proper tracking and lack of motivation to learn that habit or
+                    skill. So this website helps us track our progress in learning what we want and
+                    provide us with motivation when needed. Since most people work either on the
+                    basis of motivation or temporary moods, they do not have a consistent
+                    performance in any skill. Everyone has different ways of being motivated, be it
+                    movies, songs or books, or quotations or a creative image. It’s designed to give
+                    you that specific push for each task so you can keep moving forward without
+                    feeling burnt out.
+                </p>
+            </div>
+ 
+        </div>
+    </div>
+ 
+    <script src="../js/shared.js"></script>
+    <script src="../js/about.js"></script>
+</body>
+</html>

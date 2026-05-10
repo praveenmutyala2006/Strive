@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive - Landing Page</title>
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="intro">
+    <div class="intro-staircase">
+      <div class="stair-word word-set">SET</div>
+      <div class="stair-word word-strive">STRIVE</div>
+      <div class="stair-word word-soar">SOAR</div>
+      <div class="momentum-agent"></div>
+    </div>
+  </div>
+
+<div id="main-content">
+  <div class="container">
+    <h1 class="logo">STRIVE</h1>
+    <p class="tagline">Set • Show Up • Soar</p>
+    
+    <form class="form-box" onsubmit="handleLogin(); return false;" autocomplete="off">
+        <input type="text" id="username_input" placeholder="Display Name" required autocomplete="off">
+        <input type="email" id="email" placeholder="Email" required autocomplete="off">
+        <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Password" pattern="^(?=(?:.*[^A-Za-z0-9]){2,}).{7,}$" required autocomplete="off">
+            <span id="togglePassword">Show</span>
+        </div>
+        <span id="error"></span>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    
+    <div class="divider">or</div>
+    <button type="button" class="login-btn guest-btn" onclick="goTo('dashboard.html')">Enter as Guest</button>
+  </div>
+</div>
+  
+  <!-- Shared Logic -->
+  <script src="js/shared.js"></script>
+  <script src="js/landing.js"></script>
+
+  
+  </body>
+  </html>

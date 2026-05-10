@@ -1,0 +1,155 @@
+.feedback-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.feedback-container h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    color: var(--amber);
+    margin-bottom: 12px;
+
+}
+
+/* Community Reviews */
+
+.community-feedback {
+    width: 100%;
+}
+
+.community-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--amber);
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.feedback-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feedback-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--amber);
+}
+
+.feedback-card h3 {
+    font-size: 1.2rem;
+    color: var(--beige-hi);
+    margin-bottom: 14px;
+}
+
+.feedback-card p {
+    color: var(--beige-lo);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* Diivder line*/
+
+.feedback-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+}
+
+/* Form Header */
+
+.feedback-form-header {
+    width: 100%;
+    
+    text-align: left;
+}
+
+.feedback-form-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    color: var(--amber);
+    margin-bottom: 12px;
+}
+
+.feedback-form-header p {
+    color: var(--beige-lo);
+    line-height: 1.8;
+    font-size: 14px;
+    max-width: 700px;
+}
+
+/* Feedback Form */
+
+.feedback-form {
+    width: 100%;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 32px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.rating-group {
+    display: flex;
+    gap: 18px;
+}
+
+.rating-btn {
+    flex: 1;
+    height: 56px;
+    background: var(--lift);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--beige-hi);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    transform: translateY(-2px);
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+
+    .feedback-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .rating-group {
+        flex-wrap: wrap;
+    }
+
+    .rating-btn {
+        min-width: 80px;
+    }
+}

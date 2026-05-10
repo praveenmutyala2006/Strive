@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg); 
+  color: #f5f1eb;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+.container {
+  text-align: center;
+  background: rgba(20, 15, 10, 0.9); 
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 420px;
+  backdrop-filter: blur(10px); 
+  border: 1px solid rgba(191, 167, 111, 0.2);
+}
+
+.logo {
+  padding-left: 5px;
+  font-size: 42px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  color: var(--amber);
+  font-family: 'Playfair Display', serif;
+}
+
+.tagline {
+  color: #bfa76f;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 260px;
+  margin: auto;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login-btn{
+  padding: 8px 15px;
+  border-radius: 10px;
+  background: var(--amber);
+  border: none;
+  outline: none;
+  
+}
+
+.login-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(239, 159, 39, 0.4);
+}
+
+input:focus{
+  border: 2px solid var(--amber);
+}
+
+input:focus:invalid:not(:placeholder-shown) {
+  border: 2px solid red;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+}
+
+input:valid:not(:placeholder-shown) {
+  border: 2px solid green; 
+  box-shadow: 0 0 6px rgba(201, 168, 106, 0.4);
+}
+
+/* Intro Screen */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Initially Hiding Main Content*/
+#main-content {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* Showing Main Content */
+#main-content.show {
+  display: flex;       
+  opacity: 1;
+}
+
+.password-wrapper{
+    position: relative;
+    width: 100%;
+}
+
+#password{
+    width: 100%;
+    padding-right: 70px;
+}
+
+#togglePassword{
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+    font-size: 14px;
+}
+
+#error{
+    display: block;
+    color: red;
+    font-size: 13px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    min-height: 18px;
+}
+
+.divider{
+  text-align: center;
+  margin: 18px 0 10px;
+  color: var(--beige-lo);
+  opacity: 0.8;
+}
+
+.guest-btn{
+    width: 72.5%;
+    margin-top: 10px;
+}
+/* Animation */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-staircase {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stair-word {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: 0.4em;
+  color: var(--beige-lo);
+  opacity: 0.8;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.5s ease;
+  white-space: nowrap;
+}
+
+.word-set { transform: translate(-180px, 60px); }
+.word-strive { transform: translate(0px, 0px); }
+.word-soar { transform: translate(180px, -60px); }
+
+/* Illumination Animation */
+@keyframes illuminateWord {
+    50% { color: white; text-shadow: 0 0 35px var(--amber); }
+    100% { color: var(--beige-lo); text-shadow: none; }
+}
+
+/* Original Timeline for Phases 1-5 */
+.word-set { animation: illuminateWord 1.5s ease forwards; animation-delay: 0.7s; }
+.word-strive { animation: illuminateWord 1.5s ease forwards; animation-delay: 2.45s; }
+.word-soar { animation: illuminateWord 1.5s ease forwards; animation-delay: 4.55s; }
+
+/* The Momentum Ball Animation */
+.momentum-agent {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--amber); 
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--amber), 0 0 50px rgba(239, 159, 39, 0.4);
+  top: 50%;
+  left: 50%;
+  margin-left: -7px;
+  margin-top: -7px;
+  opacity: 0;
+  z-index: 10;
+  animation: momentumLeap 8.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes momentumLeap {
+  /* 0s - 5.5s: Original Journey (Paced for 8.2s) */
+  0% { opacity: 0; transform: translate(-180px, -150px) scale(0.5); }
+  8% { opacity: 1; transform: translate(-180px, 60px) scale(1); }
+  17% { transform: translate(-180px, 60px) scale(1); }
+  26% { transform: translate(-90px, -90px) scale(1.4); } 
+  30% { transform: translate(0px, 0px) scale(1); }
+  40% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(90px, -150px) scale(1.6); } 
+  56% { transform: translate(180px, -60px) scale(1); }
+
+  /* Hold at SOAR */
+  67% { transform: translate(180px, -60px) scale(1); opacity: 1; }
+
+  /* RETURN & FAST POP (Starting later, moving faster) */
+  90% { transform: translate(0px, 0px) scale(1.2); opacity: 1; background: var(--amber); }
+  96% { transform: translate(0px, 0px) scale(15); opacity: 1; background: var(--amber); box-shadow: 0 0 120px var(--amber); }
+  99% { opacity: 0.8; transform: translate(0px, 0px) scale(120); background: white; }
+  100% { opacity: 0; transform: translate(0px, 0px) scale(150); background: white; }
+}
+
+
+.stair-word.fade-out {
+  opacity: 0 !important;
+  transform: translate(var(--tx), var(--ty)) scale(0.5);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.word-set.fade-out { --tx: -180px; --ty: 60px; }
+.word-soar.fade-out { --tx: 180px; --ty: -60px; }
+
+.word-strive.hero {
+  z-index: 15;
+  color: white;
+  text-shadow: 0 0 70px var(--amber);
+  animation: striveHeroPhase 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, letter-spacing;
+  /* Centering Logic */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@keyframes striveHeroPhase {
+  0% { transform: translate(-50%, -50%) scale(1); letter-spacing: 0.4em; text-indent: 0.4em; opacity: 1; }
+  15% { transform: translate(-50%, -50%) scale(2.2); letter-spacing: 2.2em; text-indent: 2.2em; opacity: 1; }
+  98% { transform: translate(-50%, -50%) scale(2.2); letter-spacing: 2.2em; text-indent: 2.2em; opacity: 1; filter: blur(0px); }
+  100% { transform: translate(-50%, -50%) scale(1.8); letter-spacing: 1.5em; text-indent: 1.5em; opacity: 0; filter: blur(10px); }
+}
+
+@media (max-width: 600px) {
+  .intro-staircase {
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+  }
+  .word-set, .word-strive, .word-soar { transform: none; }
+  .momentum-agent { display: none; }
+}

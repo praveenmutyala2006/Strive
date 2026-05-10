@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strive - Motivation Engine</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Systemic CSS -->
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/motivation.css">
+</head>
+
+<body>
+
+  <!-- Shared Sidebar -->
+  <div class="sidebar">
+    <h2 class="logo">Strive</h2>
+    <ul class="nav-links">
+      <li onclick="goTo('dashboard.html')">Dashboard</li>
+      <li onclick="goTo('analytics.html')">Analytics</li>
+      <li class="active">Motivation</li>
+      <li onclick="goTo('feedback.html')">Feedback</li>
+      <li onclick="goTo('faq.html')">FAQ</li>
+      <li onclick="goTo('contact.html')">Contact</li>
+      <li onclick="goTo('about.html')">About</li>
+      <li onclick="resetUserData()" style="color: var(--coral); margin-top: auto; border-top: 1px solid var(--border); padding: 20px 16px; justify-content: center;">Reset All Data</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div>
+        <h1 class="strive-page-title">Motivation Manager</h1>
+        <p class="strive-page-subtitle">Tools to manage focus, rebuild momentum, and reset your state.</p>
+      </div>
+
+      <div class="sprint-capsule" onclick="startSprint(25)">
+        <div class="pulse-dot"></div>
+        <span class="capsule-text">Initiate Focus Sprint (25m)</span>
+      </div>
+    </div>
+
+    <!-- STATE DIAGNOSTIC CONSOLE (Keypoint) -->
+    <div class="strive-card diagnostic-console strive-mb-6">
+        <div class="diagnostic-header">
+            <h2 class="strive-h2" style="margin-bottom: 4px; color: var(--beige-hi);">Neural State Diagnostic</h2>
+            <p class="protocol-desc" style="margin-top:0; margin-bottom: 20px;">Analyze current energetic friction to optimize tool selection.</p>
+        </div>
+        
+        <div class="diagnostic-content">
+            <div class="diagnostic-prompt">
+                <span>"How are you feeling today?"</span>
+            </div>
+            
+            <div class="diagnostic-grid">
+                <div class="diag-node" id="node-exhausted" onclick="selectMood('exhausted')">
+                    <div class="node-bar bar-exhausted"></div>
+                    <span class="node-label">Low Energy</span>
+                </div>
+                <div class="diag-node" id="node-overwhelmed" onclick="selectMood('overwhelmed')">
+                    <div class="node-bar bar-overwhelmed"></div>
+                    <span class="node-label">Overwhelmed</span>
+                </div>
+                <div class="diag-node" id="node-procrastinating" onclick="selectMood('procrastinating')">
+                    <div class="node-bar bar-procrastinating"></div>
+                    <span class="node-label">Procrastinating</span>
+                </div>
+                <div class="diag-node" id="node-war_mode" onclick="selectMood('war_mode')">
+                    <div class="node-bar bar-war"></div>
+                    <span class="node-label">War Mode</span>
+                </div>
+            </div>
+            
+            <button class="reset-link" onclick="resetMood()">Reset to System Default</button>
+        </div>
+    </div>
+
+    <!-- 1. INTELLECTUAL & MATH FUEL -->
+    <div class="bento-grid two-col">
+      <!-- THE DAILY SPARK (Quote Engine) -->
+      <div class="strive-card quote-card" id="card-spark">
+        <div class="badge">The Daily Spark</div>
+        <div class="quote-text" id="sparkQuote">
+          "Loading intellectual fuel..."
+        </div>
+        <div class="quote-author" id="sparkAuthor">Strive Philosophy</div>
+      </div>
+
+      <!-- MOMENTUM FORECASTER -->
+      <div class="strive-card" id="card-forecast" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h2 class="strive-h2">Momentum Forecast</h2>
+          <p style="font-size: 12px; color: var(--beige-lo); margin-bottom: 16px;">See how skipping today impacts your 30-day baseline.</p>
+        </div>
+
+        <div class="forecast-grid">
+          <div>
+            <div id="motivationMomentumScore" class="forecast-val" style="color: var(--amber);">0%</div>
+            <p class="forecast-label">Current</p>
+          </div>
+          <div class="forecast-divider"></div>
+          <div>
+            <div id="forecastScore" class="forecast-val" style="color: var(--coral); opacity: 0.8;">0%</div>
+            <p class="forecast-label" style="color: var(--coral);">Forecast</p>
+          </div>
+        </div>
+
+        <p style="font-size: 11px; color: var(--beige-lo); text-align: center; margin-top: 15px;">
+          "Avoid zero-activity days to maintain your engine speed."
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. AUDITORY HUB -->
+    <div class="section-spacer">
+      <h2 class="strive-h2">Atmosphere Hub</h2>
+      <div class="bento-grid">
+        <div class="strive-card media-card" id="card-audio1" onclick="toggleAudio(this, 'audio1')">
+          <div class="thumbnail-wrapper">
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800"
+              alt="Deep Work">
+            <div class="play-overlay">▶</div>
+            <audio id="audio1" src="../audios/deep-work.mp3" loop preload="auto"></audio>
+          </div>
+          <div class="media-info">
+            <h3>DEEP WORK</h3>
+            <p>Lo-fi textures and binaural tones for tunnel vision.</p>
+          </div>
+        </div>
+
+        <div class="strive-card media-card" id="card-audio2" onclick="toggleAudio(this, 'audio2')">
+          <div class="thumbnail-wrapper">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800"
+              alt="War Mode">
+            <div class="play-overlay">▶</div>
+            <audio id="audio2" src="../audios/war-mode.mp3" loop preload="auto"></audio>
+          </div>
+          <div class="media-info">
+            <h3>WAR MODE</h3>
+            <p>Driving rhythmic energy for high-intensity output.</p>
+          </div>
+        </div>
+
+        <div class="strive-card media-card" id="card-audio3" onclick="toggleAudio(this, 'audio3')">
+          <div class="thumbnail-wrapper">
+            <img src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&q=80&w=800"
+              alt="Zen Reset">
+            <div class="play-overlay">▶</div>
+            <audio id="audio3" src="../audios/zen-reset.mp3" loop preload="auto"></audio>
+          </div>
+          <div class="media-info">
+            <h3>ZEN RESET</h3>
+            <p>Rain and organic frequencies for cognitive recovery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BIO & IDENTITY TOOLS -->
+    <div class="section-spacer">
+      <h2 class="strive-h2">Management Protocols</h2>
+      <div class="bento-grid two-col">
+
+        <!-- Biological Reset -->
+        <div class="strive-card breathwork-card" id="card-breath">
+          <div class="breathwork-header">
+            <div>
+              <h3 class="strive-h2">Biological Reset</h3>
+              <p class="protocol-desc">Standard box breathing to clear cognitive noise.</p>
+            </div>
+            <div class="breath-badge" id="breathBadge">Ready</div>
+          </div>
+          <div class="breath-visualizer">
+            <div class="breath-circle" id="breathCircle">
+              <span class="breath-text" id="breathText">Start</span>
+            </div>
+          </div>
+          <div class="protocol-actions">
+            <button class="strive-btn strive-btn-primary" style="flex: 1;" id="breathBtn"
+              onclick="startBreathwork()">Execute Protocol</button>
+            <button class="strive-btn" style="display: none; border-color: var(--coral); color: var(--coral);" id="stopBreathBtn"
+              onclick="stopBreathwork()">Stop</button>
+          </div>
+        </div>
+
+        <!-- Micro-Journal -->
+        <div class="strive-card micro-journal-card" id="card-journal">
+          <h3 class="strive-h2">Micro-Journal</h3>
+          <p class="protocol-desc">Log your immediate intent or clear your mind before deep work.</p>
+          <div class="journal-input-wrapper">
+            <input type="text" class="strive-input" id="journalInput" placeholder="Current mission or thought..."
+              maxlength="140">
+            <button class="strive-btn strive-btn-primary journal-save-btn" onclick="saveJournalEntry()">↵</button>
+          </div>
+          <div class="journal-entries" id="journalEntries">
+            <!-- Entries rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. THE MEDIA VAULT -->
+    <div class="section-spacer">
+        <h2 class="strive-h2">The Media Vault</h2>
+        <div class="bento-grid">
+            <div class="strive-card media-vault-card" id="media-cinema">
+                <div class="badge">Cinema</div>
+                <h3 id="vault-cinema-title">Whiplash</h3>
+                <p id="vault-cinema-desc">A study in relentless perfectionism and the cost of elite performance.</p>
+            </div>
+            <div class="strive-card media-vault-card" id="media-literature">
+                <div class="badge">Literature</div>
+                <h3 id="vault-book-title">Meditations</h3>
+                <p id="vault-book-desc">Marcus Aurelius' blueprint for maintaining a stable mind in a chaotic world.</p>
+            </div>
+            <div class="strive-card media-vault-card" id="media-sports">
+                <div class="badge">Sports / Audio</div>
+                <h3 id="vault-sports-title">The Last Dance</h3>
+                <p id="vault-sports-desc">The psychological architecture of Michael Jordan’s competitive drive.</p>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Timer Overlay -->
+  <div id="timerOverlay" class="timer-overlay">
+    <div class="timer-label" id="timerLabel">DEEP WORK SPRINT ACTIVE</div>
+    <div id="timerDisplay" class="timer-display">25:00</div>
+    <div id="missionMantra" class="mission-mantra">Ignore the noise. Focus on the mission.</div>
+    <button class="cancel-timer" onclick="stopSprint()">Abort Protocol</button>
+  </div>
+
+  <!-- Shared Logic -->
+  <script src="../js/shared.js"></script>
+  <!-- Page Logic -->
+  <script src="../js/motivation.js"></script>
+</body>
+
+</html>

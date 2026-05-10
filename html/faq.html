@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive - FAQs Page</title>
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/faq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="logo">Strive</h2>
+        <ul class="nav-links">
+            <li onclick="goTo('dashboard.html')">Dashboard</li>
+            <li onclick="goTo('analytics.html')">Analytics</li>
+            <li onclick="goTo('motivation.html')">Motivation</li>
+            <li onclick="goTo('feedback.html')">Feedback</li>
+            <li class="active">FAQ</li>
+            <li onclick="goTo('contact.html')">Contact</li>
+            <li onclick="goTo('about.html')">About</li>
+            <li onclick="resetUserData()" style="color: var(--coral); margin-top: auto; border-top: 1px solid var(--border); padding: 20px 16px; justify-content: center;">Reset All Data</li>
+        </ul>
+    </div>
+    <div class="main">
+        <h1 class="strive-page-title">Frequently Asked Questions</h1>
+        <p class="strive-page-subtitle">Get answers to your doubts</p>
+
+        <div class="faq-container">
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What is Strive? <span>+</span></div>
+                <div class="faq-answer">Strive is a minimalist, dopamine-driven productivity and habit tracking app designed to help you build consistency and discipline through visual momentum.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">How does the Momentum Score work? <span>+</span></div>
+                <div class="faq-answer">Your momentum score increases as you log habits and decreases when you miss them. It's a real-time indicator of your consistency.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Can I customize my habits? <span>+</span></div>
+                <div class="faq-answer">Yes, you can add any custom habit from your Dashboard. Simply type the habit name and click "Log Habit".</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What is the Motivation Engine? <span>+</span></div>
+                <div class="faq-answer">The Motivation Engine provides curated auditory anchors (like lo-fi or ambient noise) and tools like a deep focus sprint timer and a 60-second breathwork protocol to get you into a flow state.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">How does mood-based motivation work? <span>+</span></div>
+                <div class="faq-answer">You log your mood, and Strive responds with tailored motivation like quotes, reminders, or suggestions to help you take action.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">What makes Strive different from other habit trackers?<span>+</span></div>
+                <div class="faq-answer">Unlike traditional habit trackers that only focus on streaks and statistics, Strive also focuses on motivation and mood-based support. It provides a clean, distraction-free experience while helping users stay consistent through personalized encouragement like quotes, music, books, and creative content. The platform is designed to reduce burnout and make self-improvement feel more natural and sustainable.</div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/shared.js"></script>
+</body>
+</html>

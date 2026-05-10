@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive - Contact</title>
+
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/contact.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body> 
+
+    <div class="sidebar">
+        <h2 class="logo">Strive</h2>
+
+        <ul class="nav-links">
+            <li onclick="goTo('dashboard.html')">Dashboard</li>
+            <li onclick="goTo('analytics.html')">Analytics</li>
+            <li onclick="goTo('motivation.html')">Motivation</li>
+            <li onclick="goTo('feedback.html')">Feedback</li>
+            <li onclick="goTo('faq.html')">FAQ</li>
+            <li class="active">Contact</li>
+            <li onclick="goTo('about.html')">About</li>
+            <li onclick="resetUserData()" style="color: var(--coral); margin-top: auto; border-top: 1px solid var(--border); padding: 20px 16px; justify-content: center;">Reset All Data</li>
+        </ul>
+    </div>
+
+    <div class="main">
+
+        <h1 class="strive-page-title">Contact Us</h1>
+
+        <p class="strive-page-subtitle">
+            Need help staying on track? We're here for you.
+        </p>
+
+        <div class="contact-layout">
+
+            <div class="contact-details">
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email Support</h3>
+                        <a href="mailto:tejvardhanmaddali@gmail.com"
+                        style="display:block;">
+                            site.contact.strive@gmail.com
+                        </a>
+                        <span>Fastest response time</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <a href="tel:9014909398" style="display:block;">+91 9014909398</a>
+                        <span>Mon – Fri, 9AM – 6PM</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3>Visit Office</h3>
+                        <a href="https://maps.app.goo.gl/y1y4qvwMu5LVth9R8" style="display: block;"> Room number: 308, Vrindavan Hostel</a>
+                        <span>MA Math, Kerala, 690546</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form strive-card"
+            onsubmit="handleSubmit();  return false;">
+                <h2 class="form-title">Send a Message</h2>
+                <input type="email" class="strive-input" placeholder="Your Email" required id="contactmail">
+                <textarea rows="8" class="strive-input" placeholder="How can we be of your help..?"required id="feedbackmessage"></textarea>
+                <button type="submit" class="strive-btn strive-btn-primary submit-btn">Send Message →</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/shared.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+</html>
